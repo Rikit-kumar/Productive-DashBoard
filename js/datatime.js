@@ -36,7 +36,8 @@ function updateDateTime() {
   const fullDate = `${dayName}, ${MonthName}, ${date}`;
   CurrentDate.textContent = fullDate;
 
-  let hour = today.getHours();
+  const currentHour = today.getHours();
+  let hour = currentHour;
   let min = String(today.getMinutes()).padStart(2, "0");
   let sec = String(today.getSeconds()).padStart(2, "0");
 
@@ -47,24 +48,27 @@ function updateDateTime() {
   }else if(hour === 12){
     session = "PM";
   }else if(hour > 12){
-    hour = hour - 12;
+    hour -= 12;
     session = "PM";
   }
 
-  const fullTime = `${String(hour).padStart(2, "0")}:${min}:${sec} ${session}`;
+  const fullTime = `${String(hour).padStart(2, "0")}:${min} ${session}`;
   CurrentTime.textContent = fullTime;
 
   let greeting = "";
 
-  if(today.getHours() < 12){
-    greeting = "Good Morning";
-  }else if(today.getHours() < 17){
-    greeting = "Good Afternoon";
-  }else{
-    greeting = "Good Evening";
-  }
+  if (currentHour >= 5 && currentHour < 12) {
+        greeting = "Good Morning";
+    } else if (currentHour >= 12 && currentHour < 17) {
+        greeting = "Good Afternoon";
+    } else if (currentHour >= 17 && currentHour < 21) {
+        greeting = "Good Evening";
+    } else {
+        greeting = "Good Night";
+    }
 
   greetingAccTime.textContent = greeting
 }
 
 updateDateTime();
+setInterval(updateDateTime, 1000);

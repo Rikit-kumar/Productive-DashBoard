@@ -95,6 +95,7 @@ header {
 .greeting-name{
     cursor: pointer;
     color: var(--primary);
+    user-select: none;
 }
 
 .tooltip{
