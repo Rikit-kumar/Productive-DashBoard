@@ -107,7 +107,7 @@
 
             <!-- Dashboard -->
 
-            <main  class="dashboard-grid">
+            <main class="dashboard-grid">
                 <!-- ================= Todo Card ================= -->
 
                 <section id="todo" class="card todo-card">
@@ -294,14 +294,18 @@
                         <button id="addGoal">Add</button>
                     </div>
 
-                    <ul class="goal-list">
+                    <ul class="goal-list" id="goalList">
                         <!-- JS -->
                     </ul>
 
                     <div class="goal-progress">
                         <span> Progress </span>
 
-                        <strong> 0 / 0 Completed </strong>
+                        <strong id="goalProgress"> 0 / 0 Completed </strong>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
                     </div>
                 </section>
 
