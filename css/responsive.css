@@ -1,0 +1,493 @@
+/* ==========================================
+        RESPONSIVE PART 1
+        Large Laptop & Tablet
+========================================== */
+
+/* ---------- Large Laptop ---------- */
+
+@media (max-width: 1200px) {
+
+  .dashboard {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .main {
+    padding: 25px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+
+  .header-left h1 {
+    font-size: 2rem;
+  }
+
+  .date-box,
+  .time-box {
+    padding: 12px 16px;
+  }
+
+  .theme-btn {
+    width: 100px;
+  }
+
+  .timer-circle {
+    width: 190px;
+    height: 190px;
+  }
+
+  #timer {
+    font-size: 2.6rem;
+  }
+
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    z-index: 999;
+    transition: .35s;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+    width: 100%;
+    padding: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+  }
+
+  .header-right {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .todo-card,
+  .planner-card,
+  .pomodoro-card,
+  .weather-card,
+  .quote-card,
+  .goals-card,
+  .background-card {
+
+    grid-column: auto;
+    grid-row: auto;
+
+  }
+
+  .background-card {
+    min-height: 180px;
+  }
+
+}
+
+/* ==========================================
+        RESPONSIVE PART 2
+           Mobile (768px)
+========================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- Main Layout ---------- */
+
+  .main {
+    padding: 16px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .header-left {
+    width: 100%;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .header-left h1 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  .header-left p {
+    font-size: 0.95rem;
+  }
+
+  .header-right {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .date-box,
+  .time-box,
+  .theme-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .date-box,
+  .time-box {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .theme-btn {
+    height: 48px;
+  }
+
+  /* ---------- Dashboard Grid ---------- */
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .todo-card,
+  .planner-card,
+  .pomodoro-card,
+  .weather-card,
+  .quote-card,
+  .goals-card,
+  .background-card {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: auto;
+  }
+
+  /* ---------- Common Cards ---------- */
+
+  .card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .card-header h3 {
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Todo ---------- */
+
+  .todo-input {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .todo-input input,
+  .todo-input button {
+    width: 100%;
+    height: 50px;
+  }
+
+  /* ---------- Planner ---------- */
+
+  .planner-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .planner-item span {
+    width: auto;
+    font-size: 0.95rem;
+  }
+
+  .planner-item input {
+    width: 100%;
+  }
+
+  /* ---------- Weather ---------- */
+
+  .weather-info {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ---------- Goals ---------- */
+
+  .goal-input {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .goal-input input,
+  .goal-input button {
+    width: 100%;
+    height: 50px;
+  }
+
+  /* ---------- Pomodoro ---------- */
+
+  .timer-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  #timer {
+    font-size: 2.4rem;
+  }
+
+  .timer-buttons {
+    gap: 14px;
+  }
+
+  .timer-buttons button {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* ---------- Background ---------- */
+
+  .background-card {
+    min-height: 180px;
+  }
+
+  .background-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .background-card p {
+    font-size: 0.95rem;
+  }
+
+}
+
+/* ==========================================
+        RESPONSIVE PART 3
+      Small Mobile (480px & Below)
+========================================== */
+
+@media (max-width: 480px) {
+
+  /* ---------- Main ---------- */
+
+  .main {
+    padding: 12px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .menu-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    border-radius: 12px;
+  }
+
+  .header-left h1 {
+    font-size: 1.55rem;
+    line-height: 1.3;
+  }
+
+  .header-left p {
+    font-size: 0.85rem;
+  }
+
+  .header-right {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .date-box,
+  .time-box,
+  .theme-btn {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    font-size: 0.85rem;
+  }
+
+  /* ---------- Cards ---------- */
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .card-header {
+    margin-bottom: 18px;
+  }
+
+  .card-header h3 {
+    font-size: 1rem;
+  }
+
+  .card-header button {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* ---------- Inputs ---------- */
+
+  .card input {
+    height: 46px;
+    font-size: 14px;
+    padding: 0 14px;
+  }
+
+  /* ---------- Todo ---------- */
+
+  .todo-input button {
+    width: 100%;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  /* ---------- Planner ---------- */
+
+  .planner-item {
+    gap: 8px;
+  }
+
+  .planner-item span {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- Pomodoro ---------- */
+
+  .timer-circle {
+    width: 160px;
+    height: 160px;
+    border-width: 8px;
+  }
+
+  .timer-circle::before {
+    inset: -8px;
+    border-width: 8px;
+  }
+
+  #timer {
+    font-size: 2rem;
+  }
+
+  .timer-container p {
+    font-size: 0.9rem;
+  }
+
+  .timer-buttons {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .timer-buttons button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Weather ---------- */
+
+  .weather-icon {
+    font-size: 4rem;
+  }
+
+  #temperature {
+    font-size: 2.5rem;
+  }
+
+  #city {
+    font-size: 1.05rem;
+  }
+
+  .weather-info {
+    gap: 10px;
+  }
+
+  .weather-info div {
+    padding: 14px;
+  }
+
+  /* ---------- Quote ---------- */
+
+  .quote-card blockquote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 16px;
+  }
+
+  #author {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- Goals ---------- */
+
+  .goal-input button {
+    width: 100%;
+    height: 46px;
+  }
+
+  .goal-progress strong {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Background ---------- */
+
+  .background-card {
+    min-height: 160px;
+  }
+
+  .background-card .overlay {
+    padding: 1.5rem;
+  }
+
+  .background-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .background-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+}
