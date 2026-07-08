@@ -79,10 +79,6 @@ button {
   font-size: 1.4rem;
 }
 
-/* =========================
-        HEADER
-========================= */
-
 header {
   display: flex;
   justify-content: space-between;

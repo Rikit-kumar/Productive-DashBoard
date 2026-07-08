@@ -1,7 +1,3 @@
-/* ==========================================
-            DOM SELECTION
-========================================== */
-
 const taskInput = document.querySelector("#taskInput");
 const addTaskBtn = document.querySelector("#addTaskBtn");
 const todoList = document.querySelector("#todoList");
@@ -9,24 +5,11 @@ const todoList = document.querySelector("#todoList");
 const taskCounter = document.querySelector("#taskCounter");
 const clearCompleted = document.querySelector("#clearCompleted");
 
-/* ==========================================
-            VARIABLES
-========================================== */
-
 let tasks = getData("tasks") || [];
-
-
-/* ==========================================
-            SAVE TASKS
-========================================== */
 
 function saveTasks() {
   saveData("tasks", tasks);
 }
-
-/* ==========================================
-            RENDER TASKS
-========================================== */
 
 function renderTasks() {
   todoList.innerHTML = "";
@@ -34,16 +17,12 @@ function renderTasks() {
   if (tasks.length === 0) {
     todoList.innerHTML = `
         <div class="empty-todo">
-
             <i class="ri-checkbox-circle-line"></i>
-
             <p>No tasks yet.</p>
-
         </div>
     `;
 
     updateCounter();
-
     return;
   }
 
@@ -51,7 +30,6 @@ function renderTasks() {
     const li = document.createElement("li");
 
     li.className = "todo-item";
-
     li.dataset.id = task.id;
 
     li.innerHTML = `
@@ -70,19 +48,13 @@ function renderTasks() {
             </div>
 
             <div class="task-actions">
-
                 <button class="edit-task">
-
                     <i class="ri-edit-line"></i>
-
                 </button>
 
                 <button class="delete-task">
-
                     <i class="ri-delete-bin-6-line"></i>
-
                 </button>
-
             </div>
         `;
 
@@ -91,61 +63,41 @@ function renderTasks() {
     }
 
     todoList.appendChild(li);
-
 });
+
 updateCounter();
 }
 
 updateCounter();
 
-/* ==========================================
-        EVENT DELEGATION
-========================================== */
-
 todoList.addEventListener("click", (e) => {
   const item = e.target.closest(".todo-item");
-
   if (!item) return;
 
   const id = Number(item.dataset.id);
-
   const task = tasks.find((task) => task.id === id);
-
   if (!task) return;
-
-  // Delete
 
   if (e.target.closest(".delete-task")) {
     tasks = tasks.filter((task) => task.id !== id);
 
     saveTasks();
-
     renderTasks();
-
     return;
   }
 
-  // Edit
-
   if (e.target.closest(".edit-task")) {
     const title = item.querySelector(".task-title");
-
     title.contentEditable = "true";
-
     title.focus();
   }
 });
-
-/* ==========================================
-            ADD TASK
-========================================== */
 
 function addTask() {
   const title = taskInput.value.trim();
 
   if (title === "") {
     alert("Please enter a task.");
-
     return;
   }
 
@@ -155,28 +107,19 @@ function addTask() {
 
   if (alreadyExists) {
     alert("Task already exists.");
-
     return;
   }
 
   tasks.push({
     id: Date.now(),
-
     title,
-
     completed: false,
   });
 
   taskInput.value = "";
-
   saveTasks();
-
   renderTasks();
 }
-
-/* ==========================================
-            EVENTS
-========================================== */
 
 addTaskBtn.addEventListener("click", addTask);
 
@@ -186,15 +129,10 @@ taskInput.addEventListener("keydown", (e) => {
   }
 });
 
-/* ==========================================
-            INITIAL LOAD
-========================================== */
-
 renderTasks();
 
 function updateCounter() {
   const completed = tasks.filter((task) => task.completed).length;
-
   taskCounter.textContent = `${completed} / ${tasks.length} Completed`;
 }
 
@@ -202,19 +140,14 @@ todoList.addEventListener("change", (e) => {
   if (!e.target.classList.contains("task-check")) return;
 
   const item = e.target.closest(".todo-item");
-
   const id = Number(item.dataset.id);
-
   const task = tasks.find((task) => task.id === id);
-
   if (!task) return;
 
   task.completed = e.target.checked;
 
   saveTasks();
-
   renderTasks();
-
   updateCounter();
 });
 
@@ -224,9 +157,7 @@ clearCompleted.addEventListener("click", () => {
   tasks = tasks.filter((task) => !task.completed);
 
   saveTasks();
-
   renderTasks();
-
   updateCounter();
 });
 
@@ -236,11 +167,8 @@ todoList.addEventListener(
     if (!e.target.classList.contains("task-title")) return;
 
     const item = e.target.closest(".todo-item");
-
     const id = Number(item.dataset.id);
-
     const task = tasks.find((task) => task.id === id);
-
     if (!task) return;
 
     const value = e.target.textContent.trim();
@@ -250,9 +178,7 @@ todoList.addEventListener(
     }
 
     e.target.contentEditable = false;
-
     saveTasks();
-
     renderTasks();
   },
   true,

@@ -39,7 +39,6 @@ greetingName.addEventListener("dblclick", () => {
     if (newName === "") {
       alert("Please enter a valid name.");
     }
-
   } while (newName === "");
 
   greetingName.textContent = newName;

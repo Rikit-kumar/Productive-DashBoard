@@ -90,17 +90,15 @@ function addSlot() {
   });
 
   savePlanner();
-
   renderPlanner();
 
-    const lastTask =
-        plannerList.querySelector(".planner-item:last-child .planner-task");
+  const lastTask = plannerList.querySelector(
+    ".planner-item:last-child .planner-task",
+  );
 
-    if (lastTask) {
-
-        lastTask.focus();
-
-    }
+  if (lastTask) {
+    lastTask.focus();
+  }
 }
 
 addPlannerSlot.addEventListener("click", addSlot);
@@ -120,11 +118,8 @@ plannerList.addEventListener("input", (e) => {
   const row = e.target.closest(".planner-item");
 
   if (!row) return;
-
   const id = Number(row.dataset.id);
-
   const item = planner.find((task) => task.id === id);
-
   if (!item) return;
 
   if (e.target.classList.contains("planner-time")) {
@@ -136,9 +131,7 @@ plannerList.addEventListener("input", (e) => {
   }
 
   sortPlanner();
-
   savePlanner();
-
 });
 
 plannerList.addEventListener("click", (e) => {
@@ -147,30 +140,19 @@ plannerList.addEventListener("click", (e) => {
   if (!deleteBtn) return;
 
   const row = deleteBtn.closest(".planner-item");
-
   const id = Number(row.dataset.id);
 
   planner = planner.filter((item) => item.id !== id);
-
   savePlanner();
-
   renderPlanner();
 });
 
-
 plannerList.addEventListener("keydown", (e) => {
+  if (e.target.classList.contains("planner-task") && e.key === "Enter") {
+    e.preventDefault();
 
-    if (
-        e.target.classList.contains("planner-task") &&
-        e.key === "Enter"
-    ) {
-
-        e.preventDefault();
-
-        addSlot();
-
-    }
-
+    addSlot();
+  }
 });
 
 // console.log(getData("planner"));
