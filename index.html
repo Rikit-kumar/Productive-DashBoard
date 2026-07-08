@@ -21,6 +21,10 @@
         <!-- Sidebar -->
 
         <aside class="sidebar">
+
+            <button class="close-sidebar">
+                <i class="ri-close-line"></i>
+            </button>
             <div class="logo">
                 <div class="logo-icon">
                     <i class="ri-checkbox-circle-fill"></i>
@@ -128,47 +132,46 @@
                         <button id="addTaskBtn">Add</button>
                     </div>
 
-                    <ul class="todo-list">
+                    <ul class="todo-list" id="todoList">
                         <!-- JS -->
                     </ul>
+
+                    <div class="todo-footer">
+
+                        <span id="taskCounter">
+                            0 Tasks
+                        </span>
+
+                        <button id="clearCompleted">
+                            Clear Completed
+                        </button>
+
+                    </div>
                 </section>
 
                 <!-- ================= Planner ================= -->
 
                 <section id="planner" class="card planner-card">
-                    <div class="card-header">
-                        <h3>
-                            <i class="ri-calendar-event-line"></i>
 
+                    <div class="card-header">
+
+                        <h3>
+                            <i class="ri-calendar-line"></i>
                             Daily Planner
                         </h3>
+
+                        <button id="addPlannerSlot">
+                            <i class="ri-add-line"></i>
+                        </button>
+
                     </div>
 
-                    <div class="planner-list">
-                        <div class="planner-item">
-                            <span>08:00 AM</span>
+                    <div id="plannerList">
 
-                            <input type="text" placeholder="What's your plan?" />
-                        </div>
+                        <!-- JS -->
 
-                        <div class="planner-item">
-                            <span>10:00 AM</span>
-
-                            <input type="text" placeholder="What's your plan?" />
-                        </div>
-
-                        <div class="planner-item">
-                            <span>12:00 PM</span>
-
-                            <input type="text" placeholder="What's your plan?" />
-                        </div>
-
-                        <div class="planner-item">
-                            <span>02:00 PM</span>
-
-                            <input type="text" placeholder="What's your plan?" />
-                        </div>
                     </div>
+
                 </section>
 
                 <!-- ================= Pomodoro ================= -->
@@ -302,7 +305,7 @@
                         <span> Progress </span>
 
                         <strong id="goalProgress"> 0 / 0 Completed </strong>
-                        
+
                         <div class="progress-bar">
                             <div class="progress-fill" id="progressFill"></div>
                         </div>
@@ -312,7 +315,6 @@
                 <!-- ================= Background ================= -->
 
                 <section class="card background-card">
-
                     <div class="overlay">
 
                         <h2 id="bgGreeting">
@@ -324,7 +326,6 @@
                         </p>
 
                     </div>
-
                 </section>
             </main>
         </div>
@@ -334,13 +335,11 @@
     <script src="./js/theme.js"></script>
     <script src="./js/datatime.js"></script>
     <script src="./js/greeting.js"></script>
-    <script src="./js/script.js"></script>
     <script src="./js/todo.js"></script>
     <script src="./js/planner.js"></script>
     <script src="./js/pomodoro.js"></script>
     <script src="./js/quotes.js"></script>
     <script src="./js/weather.js"></script>
-    <script src="./js/goals.js"></script>
     <script src="./js/background.js"></script>
     <script src="./js/navigation.js"></script>
 </body>

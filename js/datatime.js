@@ -39,6 +39,7 @@ function updateDateTime() {
   const currentHour = today.getHours();
   let hour = currentHour;
   let min = String(today.getMinutes()).padStart(2, "0");
+  
   let sec = String(today.getSeconds()).padStart(2, "0");
 
   let session = "AM";

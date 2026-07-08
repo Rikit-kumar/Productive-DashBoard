@@ -46,6 +46,39 @@ button {
   display: none;
 }
 
+.close-sidebar {
+  display: none;
+
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--hover);
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.close-sidebar:hover {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+.close-sidebar i {
+  font-size: 1.4rem;
+}
+
 /* =========================
         HEADER
 ========================= */
@@ -87,51 +120,51 @@ header {
   gap: 14px;
 }
 
-.greeting-name-wrapper{
-    position: relative;
-    display: inline-block;
+.greeting-name-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
-.greeting-name{
-    cursor: pointer;
-    color: var(--primary);
-    user-select: none;
+.greeting-name {
+  cursor: pointer;
+  color: var(--primary);
+  user-select: none;
 }
 
-.tooltip{
-    position: absolute;
-    bottom: -42px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--tooltip-bg);
-    color: var(--tooltip-text);
-    border: 1px solid var(--tooltip-border);
-    box-shadow: 0 10px 25px rgba(0,0,0,.12);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: .8rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-    pointer-events: none;
-    z-index: 100;
+.tooltip {
+  position: absolute;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border: 1px solid var(--tooltip-border);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  pointer-events: none;
+  z-index: 100;
 }
 
-.tooltip::after{
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid var(--tooltip-bg);
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--tooltip-bg);
 }
 
-.greeting-name-wrapper:hover .tooltip{
-    opacity: 1;
-    visibility: visible;
+.greeting-name-wrapper:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .date-box,
@@ -145,41 +178,41 @@ header {
   border: 1px solid var(--border);
 }
 
-.theme-btn{
-    width:45px;
-    height:45px;
-    background-color: var(--primary);
-    border-radius:30px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0 8px;
-    cursor: pointer;
-    transition: 0.3s;
+.theme-btn {
+  width: 45px;
+  height: 45px;
+  background-color: var(--primary);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.theme-btn i{
-    transition: 0.35s;
+.theme-btn i {
+  transition: 0.35s;
 }
 
-.theme-btn:hover{
-    opacity: 0.9;
+.theme-btn:hover {
+  opacity: 0.9;
 }
 
-.theme-btn i{
-    font-size: 1.3rem;
-    color: white;
+.theme-btn i {
+  font-size: 1.3rem;
+  color: white;
 }
 
-.toggle{
-    position:absolute;
-    width:28px;
-    height:28px;
-    background:white;
-    border-radius:50%;
-    left:4px;
-    transition:.3s;
+.toggle {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  left: 4px;
+  transition: 0.3s;
 }
 
 .dashboard-grid {

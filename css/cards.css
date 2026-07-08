@@ -86,6 +86,48 @@
   transition: 0.3s;
 }
 
+.delete-slot {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  outline: none;
+
+  border-radius: 10px;
+
+  background: #fef2f2;
+  color: #ef4444;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.delete-slot i {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.delete-slot:hover {
+  background: #ef4444;
+  color: #fff;
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+}
+
+.delete-slot:hover i {
+  transform: scale(1.15);
+}
+
+.delete-slot:active {
+  transform: scale(0.95);
+}
+
 /* ==========================================
                 TODO CARD
 ========================================== */
@@ -96,10 +138,14 @@
   min-height: 430px;
 }
 
+/* ==========================================
+            INPUT
+========================================== */
+
 .todo-input {
   display: flex;
   gap: 12px;
-  /* margin-bottom: 1.4rem; */
+  margin-top: 1rem;
 }
 
 .todo-input input {
@@ -108,82 +154,261 @@
   font-size: 1rem;
 }
 
-.add-btn i {
-  font-size: 1.3rem;
-}
-
 .todo-input button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 0 22px;
-  font-weight: 600;
   width: 120px;
   height: 52px;
-  font-size: 16px;
-  font-weight: 600;
+  border: none;
   border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .todo-input button:hover {
   opacity: 0.9;
 }
 
+.add-btn i {
+  font-size: 1.3rem;
+}
+
+/* ==========================================
+            TODO LIST
+========================================== */
+
 .todo-list {
   list-style: none;
+  margin-top: 1.2rem;
+
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  max-height: 250px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-/* Sample Task */
+/* Scrollbar */
 
-.todo-list li {
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 20px;
+}
+
+/* ==========================================
+            TASK ITEM
+========================================== */
+
+.todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--hover);
+
+  gap: 1rem;
+
   padding: 14px 16px;
+
+  background: var(--hover);
+
   border-radius: 14px;
+
   transition: 0.3s;
+
+  animation: taskFade 0.35s ease;
 }
 
-.todo-list li:hover {
-  transform: translateX(5px);
+.todo-item:hover {
+  transform: translateX(4px);
 }
 
-.task-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* ==========================================
+            LEFT
+========================================== */
+
+.task-left{
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    width: 100px;
 }
 
-.task-left i {
-  color: var(--primary);
-  font-size: 1.2rem;
+
+
+
+/* Checkbox */
+
+.task-check {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
 
-.task-text {
-  color: var(--text);
+/* Title */
+
+.task-title{
+    min-width: 300px;
+    color: var(--text);
 }
+
+
+/* Completed */
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Editing */
+
+.task-title[contenteditable="true"] {
+  background: rgba(99, 102, 241, 0.12);
+
+  outline: 2px solid var(--primary);
+
+  border-radius: 8px;
+
+  padding: 4px 8px;
+}
+
+/* ==========================================
+            ACTIONS
+========================================== */
 
 .task-actions {
   display: flex;
-  gap: 10px;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
 }
 
 .task-actions button {
   width: 36px;
+
   height: 36px;
-  border-radius: 10px;
+
   border: none;
-  background: white;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
 }
 
-.task-actions button:hover {
-  background: var(--primary);
+/* Edit */
+
+.edit-task {
+  background: #fef2f2;
+  color: #4f46e5;
+}
+
+.edit-task:hover {
+  background: #4f46e5;
   color: white;
+}
+
+/* Delete */
+
+.delete-task {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.delete-task:hover {
+  background: #ef4444;
+
+  color: white;
+}
+
+/* ==========================================
+            FOOTER
+========================================== */
+
+.todo-footer {
+  margin-top: 1rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+#taskCounter {
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+#clearCompleted {
+  border: none;
+
+  background: transparent;
+
+  color: var(--primary);
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+#clearCompleted:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+            EMPTY STATE
+========================================== */
+
+.empty-todo {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 3rem 0;
+
+  color: var(--text-light);
+}
+
+.empty-todo i {
+  font-size: 3rem;
+
+  color: var(--primary);
+}
+
+/* ==========================================
+            ANIMATION
+========================================== */
+
+@keyframes taskFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================
@@ -230,6 +455,46 @@
 .planner-item:not(:last-child) {
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
+}
+
+.planner-item {
+  animation: plannerFade 0.35s ease;
+}
+
+.empty-planner {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 2rem;
+
+  color: var(--text-light);
+
+  opacity: 0.8;
+}
+
+.empty-planner i {
+  font-size: 2rem;
+}
+
+@keyframes plannerFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================
@@ -601,7 +866,7 @@
 }
 
 .goal-list .task-actions button:hover {
-  background: var(--primary);
+  background: #ef4444;
   color: white;
 }
 
